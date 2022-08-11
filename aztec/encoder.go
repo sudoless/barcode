@@ -121,6 +121,7 @@ func drawBullsEye(matrix *aztecCode, center, size int) {
 }
 
 // Encode returns an aztec barcode with the given content
+//gocyclo:ignore
 func Encode(data []byte, minECCPercent int, userSpecifiedLayers int) (barcode.Barcode, error) {
 	bits := highlevelEncode(data)
 	eccBits := ((bits.Len() * minECCPercent) / 100) + 11

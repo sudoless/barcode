@@ -15,6 +15,7 @@ func makeString(length int, content string) string {
 	return res
 }
 
+//gocyclo:ignore
 func Test_AlphaNumericEncoding(t *testing.T) {
 	encode := AlphaNumeric.getEncoder()
 

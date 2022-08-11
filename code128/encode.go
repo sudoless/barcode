@@ -66,6 +66,7 @@ func shouldUseATable(nextRunes []rune, curEncoding byte) bool {
 	return false
 }
 
+//gocyclo:ignore
 func getCodeIndexList(content []rune) *utils.BitList {
 	result := new(utils.BitList)
 	curEncoding := byte(0)

@@ -126,6 +126,7 @@ func determineConsecutiveTextCount(msg []rune) int {
 	return result
 }
 
+//gocyclo:ignore
 func encodeText(text []rune, submode subMode) (subMode, []int) {
 	isAlphaUpper := func(ch rune) bool {
 		return ch == ' ' || (ch >= 'A' && ch <= 'Z')

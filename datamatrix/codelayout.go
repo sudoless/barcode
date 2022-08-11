@@ -100,6 +100,7 @@ func (l *codeLayout) Corner4(value byte) {
 	l.Set(1, l.size.MatrixColumns()-1, value, 7)
 }
 
+//gocyclo:ignore
 func (l *codeLayout) SetValues(data []byte) {
 	idx := 0
 	row := 4

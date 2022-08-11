@@ -219,6 +219,7 @@ func iterateModules(occupied *qrcode) <-chan image.Point {
 	return result
 }
 
+//gocyclo:ignore
 func drawFinderPatterns(vi *versionInfo, set func(int, int, bool)) {
 	dim := vi.modulWidth()
 	drawPattern := func(xoff int, yoff int) {
