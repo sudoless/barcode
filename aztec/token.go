@@ -27,6 +27,7 @@ type binaryShiftToken struct {
 func newSimpleToken(prev token, value int, bitCount byte) token {
 	return &simpleToken{prev, value, bitCount}
 }
+
 func newShiftToken(prev token, bShiftStart int, bShiftCnt int) token {
 	return &binaryShiftToken{prev, bShiftStart, bShiftCnt}
 }
@@ -34,9 +35,11 @@ func newShiftToken(prev token, bShiftStart int, bShiftCnt int) token {
 func (st *simpleToken) prev() token {
 	return st.token
 }
+
 func (st *simpleToken) appendTo(bits *utils.BitList, text []byte) {
 	bits.AddBits(st.value, st.bitCount)
 }
+
 func (st *simpleToken) String() string {
 	value := st.value & ((1 << st.bitCount) - 1)
 	value |= 1 << st.bitCount
@@ -46,6 +49,7 @@ func (st *simpleToken) String() string {
 func (bst *binaryShiftToken) prev() token {
 	return bst.token
 }
+
 func (bst *binaryShiftToken) appendTo(bits *utils.BitList, text []byte) {
 	for i := 0; i < bst.bShiftByteCnt; i++ {
 		if i == 0 || (i == 31 && bst.bShiftByteCnt <= 62) {

@@ -77,7 +77,6 @@ func Test_Issue12(t *testing.T) {
 ########################`
 
 	bc, err := Encode(data)
-
 	if err != nil {
 		t.Error(err)
 		return

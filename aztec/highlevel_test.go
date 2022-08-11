@@ -30,6 +30,7 @@ func testHighLevelEncodeString(t *testing.T, s, expectedBits string) {
 		t.Errorf("invalid result for highlevelEncode(%q). Got:\n%s", s, result)
 	}
 }
+
 func testHighLevelEncodeStringCnt(t *testing.T, s string, expectedBitCnt int) {
 	bits := highlevelEncode([]byte(s))
 
@@ -52,7 +53,7 @@ func Test_HighLevelEncode(t *testing.T) {
 		// 'L'  L/L   'o'   D/L   '.'  '.'  '.'  U/L  L/L   'x'
 		".XX.X XXX.. X.... XXXX. XX.X XX.X XX.X XXX. XXX.. XX..X")
 	testHighLevelEncodeString(t, ". x://abc/.",
-		//P/S   '. '  L/L   'x'   P/S   ':'   P/S   '/'   P/S   '/'   'a'   'b'   'c'   P/S   '/'   D/L   '.'
+		// P/S   '. '  L/L   'x'   P/S   ':'   P/S   '/'   P/S   '/'   'a'   'b'   'c'   P/S   '/'   D/L   '.'
 		"..... ...XX XXX.. XX..X ..... X.X.X ..... X.X.. ..... X.X.. ...X. ...XX ..X.. ..... X.X.. XXXX. XX.X")
 	// Uses Binary/Shift rather than Lower/Shift to save two bits.
 	testHighLevelEncodeString(t, "ABCdEFG",
@@ -89,7 +90,7 @@ func Test_HighLevelEncodeBinary(t *testing.T) {
 
 	// getting into binary mode from digit mode
 	testHighLevelEncodeString(t, "1234\u0000",
-		//D/L   '1'  '2'  '3'  '4'  U/L  B/S    =1    \0
+		// D/L   '1'  '2'  '3'  '4'  U/L  B/S    =1    \0
 		"XXXX. ..XX .X.. .X.X .XX. XXX. XXXXX ....X ........")
 
 	// Create a string in which every character requires binary

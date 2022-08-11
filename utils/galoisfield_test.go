@@ -55,5 +55,4 @@ func Test_GF(t *testing.T) {
 			t.Error("Invalid ALog Table")
 		}
 	}
-
 }

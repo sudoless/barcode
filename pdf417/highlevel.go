@@ -150,7 +150,7 @@ func encodeText(text []rune, submode subMode) (subMode, []int) {
 		case subUpper:
 			if isAlphaUpper(ch) {
 				if ch == ' ' {
-					tmp = append(tmp, 26) //space
+					tmp = append(tmp, 26) // space
 				} else {
 					tmp = append(tmp, int(ch-'A'))
 				}
@@ -173,21 +173,21 @@ func encodeText(text []rune, submode subMode) (subMode, []int) {
 		case subLower:
 			if isAlphaLower(ch) {
 				if ch == ' ' {
-					tmp = append(tmp, 26) //space
+					tmp = append(tmp, 26) // space
 				} else {
 					tmp = append(tmp, int(ch-'a'))
 				}
 			} else {
 				if isAlphaUpper(ch) {
-					tmp = append(tmp, 27) //upper switch
+					tmp = append(tmp, 27) // upper switch
 					tmp = append(tmp, int(ch-'A'))
 					break
 				} else if isMixed(ch) {
 					submode = subMixed
-					tmp = append(tmp, 28) //mixed latch
+					tmp = append(tmp, 28) // mixed latch
 					continue
 				} else {
-					tmp = append(tmp, 29) //punctuation switch
+					tmp = append(tmp, 29) // punctuation switch
 					tmp = append(tmp, punctMap[ch])
 					break
 				}
@@ -199,32 +199,32 @@ func encodeText(text []rune, submode subMode) (subMode, []int) {
 			} else {
 				if isAlphaUpper(ch) {
 					submode = subUpper
-					tmp = append(tmp, 28) //upper latch
+					tmp = append(tmp, 28) // upper latch
 					continue
 				} else if isAlphaLower(ch) {
 					submode = subLower
-					tmp = append(tmp, 27) //lower latch
+					tmp = append(tmp, 27) // lower latch
 					continue
 				} else {
 					if idx+1 < len(text) {
 						next := text[idx+1]
 						if isPunctuation(next) {
 							submode = subPunct
-							tmp = append(tmp, 25) //punctuation latch
+							tmp = append(tmp, 25) // punctuation latch
 							continue
 						}
 					}
-					tmp = append(tmp, 29) //punctuation switch
+					tmp = append(tmp, 29) // punctuation switch
 					tmp = append(tmp, punctMap[ch])
 				}
 			}
 			break
-		default: //subPunct
+		default: // subPunct
 			if isPunctuation(ch) {
 				tmp = append(tmp, punctMap[ch])
 			} else {
 				submode = subUpper
-				tmp = append(tmp, 29) //upper latch
+				tmp = append(tmp, 29) // upper latch
 				continue
 			}
 		}
@@ -250,7 +250,7 @@ func encodeText(text []rune, submode subMode) (subMode, []int) {
 func determineConsecutiveBinaryCount(msg []byte) int {
 	result := 0
 
-	for i, _ := range msg {
+	for i := range msg {
 		numericCount := determineConsecutiveDigitCount([]rune(string(msg[i:])))
 		if numericCount >= min_numeric_count {
 			break
@@ -294,7 +294,7 @@ func encodeBinary(data []byte, startmode encodingMode) []int {
 			idx += 6
 		}
 	}
-	//Encode rest (remaining n<5 bytes if any)
+	// Encode rest (remaining n<5 bytes if any)
 	for i := idx; i < count; i++ {
 		result = append(result, int(data[i]&0xff))
 	}

@@ -27,7 +27,6 @@ func stringToAlphaIdx(content string) <-chan int {
 }
 
 func encodeAlphaNumeric(content string, ecl ErrorCorrectionLevel) (*utils.BitList, *versionInfo, error) {
-
 	contentLenIsOdd := len(content)%2 == 1
 	contentBitCount := (len(content) / 2) * 11
 	if contentLenIsOdd {
