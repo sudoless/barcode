@@ -4,7 +4,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/boombuler/barcode/utils"
+	"go.sdls.io/barcode/utils"
 )
 
 type encodingMode byte

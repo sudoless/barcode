@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/boombuler/barcode/utils"
+	"go.sdls.io/barcode/utils"
 )
 
 func Test_StuffBits(t *testing.T) {

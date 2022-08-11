@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/boombuler/barcode/utils"
+	"go.sdls.io/barcode/utils"
 )
 
 const charSet string = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:"

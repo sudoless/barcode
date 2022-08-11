@@ -4,8 +4,8 @@ package pdf417
 import (
 	"fmt"
 
-	"github.com/boombuler/barcode"
-	"github.com/boombuler/barcode/utils"
+	"go.sdls.io/barcode"
+	"go.sdls.io/barcode/utils"
 )
 
 const (

@@ -1,7 +1,7 @@
 package qr
 
 import (
-	"github.com/boombuler/barcode/utils"
+	"go.sdls.io/barcode/utils"
 )
 
 type errorCorrection struct {

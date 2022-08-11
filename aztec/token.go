@@ -3,7 +3,7 @@ package aztec
 import (
 	"fmt"
 
-	"github.com/boombuler/barcode/utils"
+	"go.sdls.io/barcode/utils"
 )
 
 type token interface {

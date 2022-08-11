@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/boombuler/barcode"
+	"go.sdls.io/barcode"
 )
 
 type test struct {

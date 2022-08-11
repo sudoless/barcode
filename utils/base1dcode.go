@@ -5,7 +5,7 @@ import (
 	"image"
 	"image/color"
 
-	"github.com/boombuler/barcode"
+	"go.sdls.io/barcode"
 )
 
 type base1DCode struct {
