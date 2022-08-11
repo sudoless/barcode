@@ -118,7 +118,7 @@ func Test_Encode(t *testing.T) {
 
 func ExampleEncode() {
 	f, _ := os.Create("qrcode.png")
-	defer f.Close()
+	defer f.Close() //#nosec G307
 
 	qrcode, err := Encode("hello world", L, Auto)
 	if err != nil {
@@ -128,7 +128,7 @@ func ExampleEncode() {
 		if err != nil {
 			fmt.Println(err)
 		} else {
-			png.Encode(f, qrcode)
+			_ = png.Encode(f, qrcode)
 		}
 	}
 }
