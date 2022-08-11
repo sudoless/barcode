@@ -17,7 +17,7 @@ func Test_AutomaticEncoding(t *testing.T) {
 		testValue, _, _ := Auto.getEncoder()(str, M)
 		if enc != nil {
 			correctValue, _, _ := enc(str, M)
-			if testValue == nil || bytes.Compare(correctValue.GetBytes(), testValue.GetBytes()) != 0 {
+			if testValue == nil || !bytes.Equal(correctValue.GetBytes(), testValue.GetBytes()) {
 				t.Errorf("wrong encoding used for '%s'", str)
 			}
 		} else {

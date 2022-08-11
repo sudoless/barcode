@@ -170,7 +170,6 @@ func encodeText(text []rune, submode subMode) (subMode, []int) {
 					break
 				}
 			}
-			break
 		case subLower:
 			if isAlphaLower(ch) {
 				if ch == ' ' {
@@ -193,7 +192,6 @@ func encodeText(text []rune, submode subMode) (subMode, []int) {
 					break
 				}
 			}
-			break
 		case subMixed:
 			if isMixed(ch) {
 				tmp = append(tmp, mixedMap[ch])
@@ -219,7 +217,6 @@ func encodeText(text []rune, submode subMode) (subMode, []int) {
 					tmp = append(tmp, punctMap[ch])
 				}
 			}
-			break
 		default: // subPunct
 			if isPunctuation(ch) {
 				tmp = append(tmp, punctMap[ch])

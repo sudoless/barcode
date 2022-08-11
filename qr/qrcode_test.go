@@ -8,7 +8,7 @@ import (
 func Test_NewQRCode(t *testing.T) {
 	bc := newBarcode(2)
 	if bc == nil {
-		t.Fail()
+		t.FailNow()
 	}
 	if bc.data.Len() != 4 {
 		t.Fail()
