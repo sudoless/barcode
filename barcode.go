@@ -17,7 +17,7 @@ const (
 	Type2of5Interleaved = "2 of 5 (interleaved)"
 )
 
-// Contains some meta information about a barcode
+// Metadata contains some meta information about a barcode
 type Metadata struct {
 	// the name of the barcode kind
 	CodeKind string
@@ -25,7 +25,7 @@ type Metadata struct {
 	Dimensions byte
 }
 
-// a rendered and encoded barcode
+// Barcode is a rendered and encoded barcode
 type Barcode interface {
 	image.Image
 	// returns some meta information about the barcode
@@ -34,8 +34,7 @@ type Barcode interface {
 	Content() string
 }
 
-// Additional interface that some barcodes might implement to provide
-// the value of its checksum.
+// BarcodeIntCS additional interface that some barcodes might implement to provide the value of its checksum.
 type BarcodeIntCS interface {
 	Barcode
 	CheckSum() int
